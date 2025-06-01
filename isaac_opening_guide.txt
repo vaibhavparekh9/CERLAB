@@ -1,0 +1,11 @@
+===================================================================================
+This guide is to launch Isaac Sim 4.0.0 standalone directly from the isaac-sandbox.
+===================================================================================
+
+cd ~
+
+cd isaac-docker/isaac-sandbox/docker
+
+./run_docker.sh 
+
+./open_isaac.sh
