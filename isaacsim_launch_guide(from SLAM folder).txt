@@ -1,5 +1,6 @@
 =====================================================================================================================================
 This guide is to launch Isaac Sim from within the SLAM project folder. This launches Isaac Sim 4.5.0 through the blank_isaac.py file.
+If you want to launch the standalone version of Isaac Sim 4.0.0 directly from the isaac-sandbox, refer to the other guide. 
 =====================================================================================================================================
 
 cd SLAM/gtsam-tutorials/docker
