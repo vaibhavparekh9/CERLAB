@@ -1,0 +1,9 @@
+cd SLAM/gtsam-tutorials/docker
+
+./run_docker.sh
+
+root@cerlab27:/src# cd src
+
+export PYTHONPATH=/src/github/borglab/gtsam/build/python:$PYTHONPATH
+
+python blank_isaac.py
