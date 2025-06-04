@@ -9,3 +9,6 @@ cd isaac-docker/isaac-sandbox/docker
 ./run_docker.sh 
 
 ./open_isaac.sh
+
+
+docker pull gitlab.cerlab.lan.cmu.edu:5050/cerlab_public/isaac-sandbox:Ubuntu-20.04_Isaac-4.5.0_Cuda-12.2.0
