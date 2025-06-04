@@ -10,5 +10,6 @@ cd isaac-docker/isaac-sandbox/docker
 
 ./open_isaac.sh
 
-
-docker pull gitlab.cerlab.lan.cmu.edu:5050/cerlab_public/isaac-sandbox:Ubuntu-20.04_Isaac-4.5.0_Cuda-12.2.0
+NOTE: 
+> this, by default used to launch Isaac Sim 4.0.0. 
+> to launch 4.5.0 by default, i changed the image line in the docker-compose.yml file to: docker pull gitlab.cerlab.lan.cmu.edu:5050/cerlab_public/isaac-sandbox:Ubuntu-20.04_Isaac-4.5.0_Cuda-12.2.0
