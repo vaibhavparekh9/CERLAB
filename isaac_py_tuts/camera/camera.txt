@@ -1,1 +1,18 @@
+from isaacsim.simulation_app import SimulationApp
+from isaacsim.core.api import World
+from isaacsim.sensors.camera import Camera
 
+I) -- When simply run -------------------
+
+root@cerlab27:/src/src# python camera.py
+Traceback (most recent call last):
+  File "/src/src/camera.py", line 7, in <module>
+    from isaacsim.core.api import World
+ModuleNotFoundError: No module named 'isaacsim.core'
+There was an error running python
+
+II) -- When run with export PYTHONPATH -------------------
+
+root@cerlab27:/src/src# export PATH="/isaac-sim/kit:$PATH"
+root@cerlab27:/src/src# kit --ext-folder /isaac-sim/exts python camera.py
+[Info] [carb] Logging to file: /root/.nvidia-omniverse/logs/Kit/kit/106.5/kit_20250616_033019.log
