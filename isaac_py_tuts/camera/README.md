@@ -10,3 +10,4 @@ Files:
 camera.py: spawn world, objects, and camera; and capture and save an image
 trainer.py: train the YOLO model
 detector.py: takes the captured image; and gives inference (bounding box)
+best.pt: weights
