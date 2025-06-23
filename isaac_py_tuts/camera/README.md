@@ -6,8 +6,8 @@ This tutorial is on how to:
 
 Note: dataset taken from Roboflow (https://universe.roboflow.com/semih-4gisc/geo-shapes-detection/dataset/1/)
 
-Files: 
-camera.py: spawn world, objects, and camera; and capture and save an image </br>
-trainer.py: train the YOLO model </br>
-detector.py: takes the captured image; and gives inference (bounding box) </br>
-best.pt: weights </br>
+Files: </br>
+- camera.py: spawn world, objects, and camera; and capture and save an image </br>
+- trainer.py: train the YOLO model </br>
+- detector.py: takes the captured image; and gives inference (bounding box) </br>
+- best.pt: weights </br>
