@@ -12,8 +12,9 @@ from isaacsim.core.api import World
 from isaacsim.sensors.camera import Camera
 import isaacsim.core.utils.numpy.rotations as rot_utils
 from isaacsim.core.api.objects import VisualCuboid
+from isaacsim.core.api.objects import VisualCone
+from isaacsim.core.api.objects import VisualSphere
 # ==================================================================
-
 
 world   = World(stage_units_in_meters = 1)
 world.initialize_physics()
@@ -28,6 +29,23 @@ fancy_cube = world.scene.add(VisualCuboid
                               #size = 0.5,
                               color=np.array([1, 1, 0]), 
                               ))
+
+# cone = world.scene.add(VisualCone
+#                        (prim_path="/visual_cone",
+#                         name="fancy_cone",
+#                         position=np.array([1.0, 0.0, 0.5]),  
+#                         height=1.0,                          
+#                         radius=0.5,                          
+#                         color=np.array([1.0, 0.0, 0.0])
+#                         ))
+
+# world.scene.add(VisualSphere
+#                 (prim_path="/visual_sphere",
+#                 name="fancy_sphere",
+#                 position=np.array([-2.0, 0.0, 0.5]),
+#                 radius=0.5,
+#                 color=np.array([0.0, 0.0, 1.0])
+#                 ))
 
 cam = Camera(
     prim_path="/World/camera",
@@ -46,42 +64,18 @@ import cv2
 out_dir = "/home/vsparekh/isaac_py_tuts/src/camera/frames"
 os.makedirs(out_dir, exist_ok=True)
 frame_id = 0
-
 # ==================================================================
 
-# captured = False
-# while sim_app.is_running() and not captured:
-#     sim_app.update()
-
-#     img = cam.get_rgb()    # H×W×3 uint8 RGB
-
-#     # convert RGB→BGR for OpenCV
-#     bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
-
-#     # write to disk (overwrites each run)
-#     cv2.imwrite("capture.png", bgr)
-#     print("Wrote capture.png via OpenCV")
-#     captured = True
-    
-# sim_app.close()
-
-
 for _ in range(30):  
-    sim_app.update()
+    sim_app.update() # warm-up loop; to get a few frames first before capturing one
 
-# ─── Grab & save one frame ─────────────────────────────────
-# Now we know cam.get_rgb() will return a valid array
-img = cam.get_rgb()    # H×W×3 uint8 RGB
+img = cam.get_rgb()   
 
-# Convert RGB→BGR for OpenCV
 import cv2, os
 bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
 
-# Write to disk (overwrites each run)
 cv2.imwrite("capture.png", bgr)
-print("Wrote capture.png via OpenCV")
 
-# ─── Enter main loop (if you still want it running) ──────
 while sim_app.is_running():
     sim_app.update()
 
