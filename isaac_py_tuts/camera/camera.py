@@ -71,7 +71,6 @@ for _ in range(30):
 
 img = cam.get_rgb()   
 
-import cv2, os
 bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
 
 cv2.imwrite("capture.png", bgr)
