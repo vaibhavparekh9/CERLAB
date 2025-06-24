@@ -70,9 +70,7 @@ for _ in range(30):
     sim_app.update() # warm-up loop; to get a few frames first before capturing one
 
 img = cam.get_rgb()   
-
 bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
-
 cv2.imwrite("capture.png", bgr)
 
 while sim_app.is_running():
