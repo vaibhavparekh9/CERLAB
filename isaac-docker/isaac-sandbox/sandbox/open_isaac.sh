@@ -1,0 +1,1 @@
+bash /isaac-sim/isaac-sim.sh

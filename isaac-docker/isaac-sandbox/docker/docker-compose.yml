@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  isaac:
+    container_name: docker_isaac
+    image: gitlab.cerlab.lan.cmu.edu:5050/cerlab_public/isaac-sandbox:Ubuntu-20.04_Isaac-4.5.0_Cuda-12.2.0
+    build:  
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - CPU_PARALLEL=4
+    working_dir: /sandbox
+    entrypoint: /bin/bash
+    env_file:
+      - path: ./default.env
+        required: true
+      - path: ./password.env
+        required: false
+    volumes:
+      - ~/docker/isaac-sim/cache/kit:/isaac-sim/kit/cache:rw
+      - ~/docker/isaac-sim/cache/ov:/root/.cache/ov:rw
+      - ~/docker/isaac-sim/cache/pip:/root/.cache/pip:rw
+      - ~/docker/isaac-sim/cache/glcache:/root/.cache/nvidia/GLCache:rw
+      - ~/docker/isaac-sim/cache/computecache:/root/.nv/ComputeCache:rw
+      - ~/docker/isaac-sim/logs:/root/.nvidia-omniverse/logs:rw
+      - ~/docker/isaac-sim/data:/root/.local/share/ov/data:rw
+      - ~/docker/isaac-sim/documents:/root/Documents:rw
+      - ${HOME}/.Xauthority:/root/.Xauthority
+      - ../data:/data
+      - ../sandbox:/sandbox
+    network_mode: host
+    stdin_open: true
+    tty: true
+    ports:
+      - 8080:8080
+    deploy:
+          resources:
+            reservations:
+              devices:
+                - driver: nvidia
+                  count: all
+                  capabilities: [gpu]
