@@ -1,8 +1,0 @@
-cd isaac_py_tuts/docker/
-
-./run_docker.sh 
-
-cd src
-
-python my_standalone.py
-
